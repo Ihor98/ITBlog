@@ -1,0 +1,99 @@
+<div class="newArticle p-3 mt-3" *ngIf="add">
+  <div class="creationForm">
+    <form [formGroup]="creationArticleForm">
+      <div class="row">
+        <div class="col">
+          <label for="category" class="form-label"
+            >Choose category of the article:
+          </label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            formControlName="category"
+            id="category"
+          >
+            <option
+              *ngFor="let category of categories"
+              [value]="category.value"
+            >
+              {{ category.viewValue }}
+            </option>
+          </select>
+        </div>
+
+        <div class="col">
+          <label for="title" class="form-label">Enter the title:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            formControlName="title"
+          />
+        </div>
+      </div>
+
+      <label for="imgUrl" class="form-label">Enter the image URL:</label>
+
+      <input
+        type="text"
+        class="form-control"
+        id="imgUrl"
+        formControlName="imgUrl"
+      />
+
+      <label>
+        <textarea
+          class="form-control mt-3"
+          placeholder="Write here the short description of article..."
+          formControlName="shrtText"
+          style="height: 50px"
+        ></textarea>
+      </label>
+
+      <label>
+        <textarea
+          class="form-control mt-3"
+          placeholder="Write here the full text of article..."
+          formControlName="longText"
+          style="height: 100px"
+        ></textarea>
+      </label>
+    </form>
+    <button
+      class="btn btn-outline-primary mt-4"
+      [disabled]="!creationArticleForm.valid"
+      (click)="saveArticle(creationArticleForm.value)"
+    >
+      Save
+    </button>
+    <button class="btn btn-outline-danger mt-4 ml-4" (click)="add = !add">
+      Cancel
+    </button>
+  </div>
+</div>
+
+<div class="header d-flex justify-content-between p-4">
+  <h2>Backend articles</h2>
+  <button
+    class="btn btn-primary"
+    (click)="openNewArticleForm()"
+    [disabled]="add"
+  >
+    Add new
+  </button>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div *ngFor="let article of baArticles" class="col-sm-4">
+      <div class="card" style="">
+        <img [src]= article.imgUrl  class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{article.title}}</h5>
+          <p class="card-text">{{article.shrtText}}</p>
+          <a routerLink="" class="btn btn-primary">See more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

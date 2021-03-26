@@ -3,38 +3,36 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponentComponent } from './header-component/header-component.component';
+import { HeaderComponent } from './header/header.component';
 import { MainLayoutComponentComponent } from './main-layout-component/main-layout-component.component';
-import { FooterComponentComponent } from './footer-component/footer-component.component';
 import { SidebarComponentComponent } from './main-layout-component/sidebar-component/sidebar-component.component';
 import { MainContentComponentComponent } from './main-layout-component/main-content-component/main-content-component.component';
-import { UserInfoComponent } from './main-layout-component/main-content-component/user-info/user-info.component';
-import { CreateUserComponent } from './main-layout-component/main-content-component/create-user/create-user.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
-import { FilterPipe } from './pipes/filter.pipe';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
-import {UserState} from './user/store/user.state';
-import { LoginComponent } from './main-layout-component/main-content-component/login/login.component';
-import { AnswerPageComponent } from './main-layout-component/main-content-component/answer-page/answer-page.component';
-import {AuthState} from './main-layout-component/main-content-component/login/auth/auth.state';
+import { ArticleState } from './article/store/article.state';
+import { HelloComponent } from './main-layout-component/main-content-component/hello/hello.component';
+import { FeComponent } from './main-layout-component/main-content-component/fe/fe.component';
+import { BeComponent } from './main-layout-component/main-content-component/be/be.component';
+import { BaComponent } from './main-layout-component/main-content-component/ba/ba.component';
+import { GdComponent } from './main-layout-component/main-content-component/gd/gd.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponentComponent,
+    HeaderComponent,
     MainLayoutComponentComponent,
-    FooterComponentComponent,
     SidebarComponentComponent,
     MainContentComponentComponent,
-    UserInfoComponent,
-    CreateUserComponent,
-    FilterPipe,
-    LoginComponent,
-    AnswerPageComponent,
+    HelloComponent,
+    FeComponent,
+    BeComponent,
+    BaComponent,
+    GdComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,11 +42,10 @@ import {AuthState} from './main-layout-component/main-content-component/login/au
     CommonModule,
     HttpClientModule,
     MatTableModule,
-    NgxsModule.forRoot(
-      [UserState, AuthState]
-    ),
+    NgxsModule.forRoot([ArticleState]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
-    NgxsLoggerPluginModule.forRoot()
+    NgxsLoggerPluginModule.forRoot(),
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

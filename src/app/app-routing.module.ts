@@ -1,27 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CreateUserComponent } from './main-layout-component/main-content-component/create-user/create-user.component';
-import { UserInfoComponent } from './main-layout-component/main-content-component/user-info/user-info.component';
-import { LoginComponent } from './main-layout-component/main-content-component/login/login.component';
-import { AnswerPageComponent } from './main-layout-component/main-content-component/answer-page/answer-page.component';
-import { AuthGuard } from './auth,guard';
-import { UserResolver } from './user.resolver';
+import { HelloComponent } from './main-layout-component/main-content-component/hello/hello.component';
+import { BaComponent } from './main-layout-component/main-content-component/ba/ba.component';
+import { BeComponent } from './main-layout-component/main-content-component/be/be.component';
+import { FeComponent } from './main-layout-component/main-content-component/fe/fe.component';
+import { GdComponent } from './main-layout-component/main-content-component/gd/gd.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'create', component: CreateUserComponent },
-  {
-    path: 'info',
-    component: UserInfoComponent,
-    canActivate: [AuthGuard],
-    resolve: [UserResolver],
-  },
-  { path: '', component: AnswerPageComponent },
+  { path: '', component: HelloComponent },
+  { path: 'ba', component: BaComponent },
+  { path: 'be', component: BeComponent },
+  { path: 'fe', component: FeComponent },
+  { path: 'gd', component: GdComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [UserResolver],
+  providers: [],
 })
 export class AppRoutingModule {}
