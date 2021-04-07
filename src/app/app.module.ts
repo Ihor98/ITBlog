@@ -15,10 +15,7 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { ArticleState } from './article/store/article.state';
 import { HelloComponent } from './main-layout-component/main-content-component/hello/hello.component';
-import { FeComponent } from './main-layout-component/main-content-component/fe/fe.component';
-import { BeComponent } from './main-layout-component/main-content-component/be/be.component';
 import { BaComponent } from './main-layout-component/main-content-component/ba/ba.component';
-import { GdComponent } from './main-layout-component/main-content-component/gd/gd.component';
 import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
@@ -29,10 +26,7 @@ import { MatSelectModule } from '@angular/material/select';
     SidebarComponentComponent,
     MainContentComponentComponent,
     HelloComponent,
-    FeComponent,
-    BeComponent,
     BaComponent,
-    GdComponent,
   ],
   imports: [
     BrowserModule,
