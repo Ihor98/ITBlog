@@ -1,7 +1,7 @@
 {
   "articles": [
     {
-      "category": "FE",
+      "category": "fe",
       "title": "fdfs",
       "shrtText": "sdffs",
       "longText": "sdgfg",
@@ -9,7 +9,7 @@
       "id": 1
     },
     {
-      "category": "BE",
+      "category": "be",
       "title": "REST API`s",
       "shrtText": "This is article arout REST API`s",
       "longText": "Some mock",

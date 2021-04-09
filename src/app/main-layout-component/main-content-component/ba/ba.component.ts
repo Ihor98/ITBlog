@@ -6,6 +6,7 @@ import {
   GetArticles,
 } from '../../../article/store/article.actions';
 import {ActivatedRoute, Router} from '@angular/router';
+import {filter} from 'rxjs/operators';
 
 @Component({
   selector: 'app-ba',
@@ -13,31 +14,31 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./ba.component.scss'],
 })
 export class BaComponent implements OnInit, DoCheck {
-  baArticles = [];
+  articles = [];
   add = false;
   creationArticleForm: FormGroup;
   currentCategoryHeader: string;
   currentCategoryUrl: string;
-
+  data;
   categories = [
-    { value: 'BE', viewValue: 'Backend' },
-    { value: 'FE', viewValue: 'Frontend' },
-    { value: 'BA', viewValue: 'Business Analysis' },
-    { value: 'GD', viewValue: 'Game Development' },
+    { value: 'be', viewValue: 'Backend' },
+    { value: 'fe', viewValue: 'Frontend' },
+    { value: 'ba', viewValue: 'Business Analysis' },
+    { value: 'gd', viewValue: 'Game Development' },
   ];
 
   constructor(
     private formBuilder: FormBuilder,
     private store: Store,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.store.dispatch(new GetArticles()).subscribe((art) => {
-      this.baArticles = art.articles.articlesList.filter(
-        (a) => a.category === 'BE'
-      );
-    });
+/*    this.data = this.route.data.subscribe(val => {
+      this.articles = val.data;
+      console.log(this.articles);
+    });*/
   }
 
   ngDoCheck(): void {
@@ -56,6 +57,11 @@ export class BaComponent implements OnInit, DoCheck {
         this.currentCategoryHeader = 'Game Development';
         break;
     }
+    this.route.data.subscribe(val => {
+      this.data = val.data;
+    });
+    console.log(this.data);
+/*    */
   }
 
   openNewArticleForm(): void {
