@@ -10,10 +10,10 @@ import { Article } from '../../../models/article.model';
 
 @Component({
   selector: 'app-ba',
-  templateUrl: './ba.component.html',
-  styleUrls: ['./ba.component.scss'],
+  templateUrl: './articles.component.html',
+  styleUrls: ['./articles.component.scss'],
 })
-export class BaComponent implements OnInit, DoCheck {
+export class ArticlesComponent implements OnInit, DoCheck {
   articles: Article[] = [];
   add = false;
   creationArticleForm: FormGroup;
@@ -23,7 +23,7 @@ export class BaComponent implements OnInit, DoCheck {
   categories = [
     { value: 'be', viewValue: 'Backend' },
     { value: 'fe', viewValue: 'Frontend' },
-    { value: 'ba', viewValue: 'Business Analysis' },
+    { value: 'articles-component', viewValue: 'Business Analysis' },
     { value: 'gd', viewValue: 'Game Development' },
   ];
 
@@ -51,7 +51,7 @@ export class BaComponent implements OnInit, DoCheck {
       case '/fe':
         this.currentCategoryHeader = 'Frontend';
         break;
-      case '/ba':
+      case '/articles-component':
         this.currentCategoryHeader = 'Business Analytics';
         break;
       case '/gd':
