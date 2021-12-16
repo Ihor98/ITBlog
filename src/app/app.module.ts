@@ -17,6 +17,7 @@ import { ArticleState } from './article/store/article.state';
 import { HelloComponent } from './main-layout-component/main-content-component/hello/hello.component';
 import { ArticlesComponent } from './main-layout-component/main-content-component/articles-component/articles.component';
 import { MatSelectModule } from '@angular/material/select';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,9 @@ import { MatSelectModule } from '@angular/material/select';
     CommonModule,
     HttpClientModule,
     MatTableModule,
-    NgxsModule.forRoot([ArticleState]),
+    NgxsModule.forRoot([ArticleState], {
+      developmentMode: !environment.production
+    }),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
     MatSelectModule,
