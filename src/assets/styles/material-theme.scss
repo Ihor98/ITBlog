@@ -1,0 +1,42 @@
+@import "variables";
+
+.mat-form-field:not(.mat-form-field-invalid) {
+
+  .mat-form-field-label {
+    color: $primary;
+  }
+
+  .mat-form-field-required-marker {
+    color: $primary;
+  }
+
+  .mat-form-field-underline {
+    background-color: $primary;
+
+    .mat-form-field-ripple {
+      background-color: $primary-dark;
+    }
+  }
+
+  &.mat-focused:not(.mat-form-field-invalid) {
+    .mat-form-field-label {
+      color: $primary-dark;
+    }
+
+    .mat-form-field-required-marker {
+      color: $primary-dark;
+    }
+  }
+
+}
+
+.mat-flat-button.mat-primary {
+  background-color: $secondary;
+}
+
+.mat-form-field-suffix {
+  color: $primary;
+  cursor: pointer;
+}
+
+

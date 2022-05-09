@@ -1,12 +1,7 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Store } from '@ngxs/store';
-import {
-  AddArticle,
-  GetArticles,
-} from '../../../article/store/article.actions';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Article } from '../../../models/article.model';
+import { Article } from '../../../core/interfaces/article.interface';
 
 @Component({
   selector: 'app-ba',
@@ -29,7 +24,7 @@ export class ArticlesComponent implements OnInit, DoCheck {
 
   constructor(
     private formBuilder: FormBuilder,
-    private store: Store,
+    // private store: Store,
     private router: Router,
     private route: ActivatedRoute
   ) {}
@@ -73,11 +68,11 @@ export class ArticlesComponent implements OnInit, DoCheck {
 
   saveArticle(formValue): void {
     this.add = false;
-    this.store.dispatch(new AddArticle({ article: formValue }));
-    this.store.dispatch(new GetArticles()).subscribe((val) => {
-      this.articles = val.articles.articlesList.filter(
-        (art) => art.category === this.router.url.slice(1)
-      );
-    });
+    // this.store.dispatch(new AddArticle({ article: formValue }));
+    // this.store.dispatch(new GetArticles()).subscribe((val) => {
+    //   this.articles = val.articles.articlesList.filter(
+    //     (art) => art.category === this.router.url.slice(1)
+    //   );
+    // });
   }
 }

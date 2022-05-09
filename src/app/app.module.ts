@@ -1,23 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+
+import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MainLayoutComponentComponent } from './main-layout-component/main-layout-component.component';
 import { SidebarComponentComponent } from './main-layout-component/sidebar-component/sidebar-component.component';
 import { MainContentComponentComponent } from './main-layout-component/main-content-component/main-content-component.component';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import { MatTableModule } from '@angular/material/table';
-import { NgxsModule } from '@ngxs/store';
-import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
-import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
-import { ArticleState } from './article/store/article.state';
 import { HelloComponent } from './main-layout-component/main-content-component/hello/hello.component';
 import { ArticlesComponent } from './main-layout-component/main-content-component/articles-component/articles.component';
-import { MatSelectModule } from '@angular/material/select';
-import { environment } from '../environments/environment';
+import { AuthComponent } from './pages/auth/auth.component';
+import { RegisterComponent } from './components/register/register.component';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+
+const MATERIAL = [
+  MatTableModule,
+  MatSelectModule,
+  MatButtonModule,
+  MatInputModule,
+  MatIconModule
+];
 
 @NgModule({
   declarations: [
@@ -28,21 +39,20 @@ import { environment } from '../environments/environment';
     MainContentComponentComponent,
     HelloComponent,
     ArticlesComponent,
+    AuthComponent,
+    RegisterComponent
   ],
   imports: [
+    ...MATERIAL,
     BrowserModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
     HttpClientModule,
-    MatTableModule,
-    NgxsModule.forRoot([ArticleState], {
-      developmentMode: !environment.production
-    }),
-    NgxsReduxDevtoolsPluginModule.forRoot(),
-    NgxsLoggerPluginModule.forRoot(),
-    MatSelectModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

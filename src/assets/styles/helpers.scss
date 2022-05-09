@@ -1,0 +1,109 @@
+$util-range-to: 52;
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
+@function increment-by-2($i, $unit) {
+  @return $i + $unit;
+}
+
+// Padding helper
+@for $i from 0 to $util-range-to {
+  .pl-#{$i} {
+    padding-left: increment-by-2($i, px) !important;
+  }
+}
+
+@for $i from 0 to $util-range-to {
+  .pr-#{$i} {
+    padding-right: increment-by-2($i, px) !important;
+  }
+}
+
+@for $i from 0 to $util-range-to {
+  .pt-#{$i} {
+    padding-top: increment-by-2($i, px) !important;
+  }
+}
+
+@for $i from 0 to $util-range-to {
+  .pb-#{$i} {
+    padding-bottom: increment-by-2($i, px) !important;
+  }
+}
+
+@for $i from 0 to $util-range-to {
+  .px-#{$i} {
+    padding-left: increment-by-2($i, px) !important;
+    padding-right: increment-by-2($i, px) !important;
+  }
+}
+
+@for $i from 0 to $util-range-to {
+  .py-#{$i} {
+    padding-top: increment-by-2($i, px) !important;
+    padding-bottom: increment-by-2($i, px) !important;
+  }
+}
+
+@for $i from 0 to $util-range-to {
+  .p-#{$i} {
+    padding: increment-by-2($i, px) !important;
+  }
+}
+
+// Margin helper
+@for $i from 0 to $util-range-to {
+  .mt-#{$i} {
+    margin-top: increment-by-2($i, px) !important;
+  }
+}
+
+@for $i from 0 to $util-range-to {
+  .mr-#{$i} {
+    margin-right: increment-by-2($i, px) !important;
+  }
+}
+
+@for $i from 0 to $util-range-to {
+  .mb-#{$i} {
+    margin-bottom: increment-by-2($i, px) !important;
+  }
+}
+
+@for $i from 0 to $util-range-to {
+  .ml-#{$i} {
+    margin-left: increment-by-2($i, px) !important;
+  }
+}
+
+@for $i from 0 to $util-range-to {
+  .mx-#{$i} {
+    margin-left: increment-by-2($i, px) !important;
+    margin-right: increment-by-2($i, px) !important;
+  }
+}
+
+@for $i from 0 to $util-range-to {
+  .my-#{$i} {
+    margin-top: increment-by-2($i, px) !important;
+    margin-bottom: increment-by-2($i, px) !important;
+  }
+}
+
+@for $i from 0 to $util-range-to {
+  .m-#{$i} {
+    margin: increment-by-2($i, px) !important;
+  }
+}
+
+@for $i from 0 to $util-range-to {
+  .ls-#{$i} {
+    letter-spacing: increment-by-2($i, px) !important;
+  }
+}
